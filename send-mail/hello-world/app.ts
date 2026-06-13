@@ -1,7 +1,5 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-
-const ses = new SESClient({ region: process.env.AWS_REGION ?? 'ap-northeast-1' });
+import nodemailer from 'nodemailer';
 
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN ?? 'https://kumoti.jp';
 
@@ -41,6 +39,18 @@ async function verifyTurnstile(token: string): Promise<boolean> {
     return data.success;
 }
 
+function createTransporter() {
+    return nodemailer.createTransport({
+        host: 'smtp.mail.eu-west-1.awsapps.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: process.env.SMTP_USER!,
+            pass: process.env.SMTP_PASS!,
+        },
+    });
+}
+
 export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     if (event.httpMethod === 'OPTIONS') {
         return { statusCode: 204, headers: CORS_HEADERS, body: '' };
@@ -69,30 +79,21 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
 
         const inquiryLabel = INQUIRY_LABELS[inquiryType] ?? inquiryType;
 
-        await ses.send(new SendEmailCommand({
-            Source:      process.env.FROM_EMAIL!,
-            Destination: { ToAddresses: [process.env.TO_EMAIL!] },
-            Message: {
-                Subject: {
-                    Data:    `【kumoti.jp お問い合わせ】${inquiryLabel} - ${name}様`,
-                    Charset: 'UTF-8',
-                },
-                Body: {
-                    Text: {
-                        Data: [
-                            `■ お名前         : ${name}`,
-                            `■ 会社名・屋号   : ${company || '未記入'}`,
-                            `■ メールアドレス : ${email}`,
-                            `■ 種別           : ${inquiryLabel}`,
-                            '',
-                            '■ お問い合わせ内容:',
-                            message,
-                        ].join('\n'),
-                        Charset: 'UTF-8',
-                    },
-                },
-            },
-        }));
+        const transporter = createTransporter();
+        await transporter.sendMail({
+            from:    process.env.SMTP_USER!,
+            to:      process.env.TO_EMAIL!,
+            subject: `【kumoti.jp お問い合わせ】${inquiryLabel} - ${name}様`,
+            text: [
+                `■ お名前         : ${name}`,
+                `■ 会社名・屋号   : ${company || '未記入'}`,
+                `■ メールアドレス : ${email}`,
+                `■ 種別           : ${inquiryLabel}`,
+                '',
+                '■ お問い合わせ内容:',
+                message,
+            ].join('\n'),
+        });
 
         return respond(200, { message: 'メッセージを送信しました。ありがとうございます！' });
 

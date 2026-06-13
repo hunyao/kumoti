@@ -18,8 +18,7 @@ capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
 s3_prefix = "send-mail"
-region = "us-east-1"
-parameter_overrides = "ToEmail=\"jun@kumoti.jp\" FromEmail=\"jun@kumoti.jp\" AllowedOrigin=\"https://kumoti.jp\""
+parameter_overrides = "SmtpUser=\"jun@kumoti.jp\" ToEmail=\"jun@kumoti.jp\" AllowedOrigin=\"https://kumoti.jp\""
 image_repositories = []
 
 [default.package.parameters]

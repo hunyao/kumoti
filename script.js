@@ -222,9 +222,10 @@ document.getElementById('contactForm').addEventListener('submit', async function
   }
 
   const submitBtn = this.querySelector('button[type="submit"]');
-  submitBtn.disabled = true;
-  status.textContent = '> 送信中...';
-  status.className   = 'form-status';
+  submitBtn.disabled   = true;
+  submitBtn.innerHTML  = '<span class="btn-spinner"></span> 送信中...';
+  status.textContent   = '';
+  status.className     = 'form-status';
 
   try {
     const res = await fetch(CONTACT_API_URL, {
@@ -249,6 +250,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     status.textContent = '> Error: 送信に失敗しました。通信環境をご確認の上、再度お試しください。';
     status.className   = 'form-status error';
   } finally {
-    submitBtn.disabled = false;
+    submitBtn.disabled  = false;
+    submitBtn.innerHTML = '<span class="tk-prompt-inline">❯</span> この内容で送信する';
   }
 });

@@ -3,19 +3,23 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   send-mail
 
-  Contact form handler for kumoti.jp — Turnstile verification + SES email delivery
+  Contact form handler for kumoti.jp — Turnstile verification + WorkMail SMTP delivery
 
 Parameters:
   TurnstileSecretKey:
     Type: String
     NoEcho: true
     Description: Cloudflare Turnstile secret key
+  SmtpUser:
+    Type: String
+    Description: WorkMail SMTP username (email address)
+  SmtpPass:
+    Type: String
+    NoEcho: true
+    Description: WorkMail SMTP password
   ToEmail:
     Type: String
     Description: Recipient email address for contact form submissions
-  FromEmail:
-    Type: String
-    Description: Verified SES sender email address
   AllowedOrigin:
     Type: String
     Default: 'https://kumoti.jp'
@@ -42,16 +46,10 @@ Resources:
       Environment:
         Variables:
           TURNSTILE_SECRET_KEY: !Ref TurnstileSecretKey
+          SMTP_USER: !Ref SmtpUser
+          SMTP_PASS: !Ref SmtpPass
           TO_EMAIL: !Ref ToEmail
-          FROM_EMAIL: !Ref FromEmail
           ALLOWED_ORIGIN: !Ref AllowedOrigin
-      Policies:
-        - Statement:
-            - Effect: Allow
-              Action:
-                - ses:SendEmail
-                - ses:SendRawEmail
-              Resource: '*'
       Events:
         ContactPost:
           Type: Api

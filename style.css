@@ -559,6 +559,27 @@ pre, code { font-family: var(--font-mono); }
   background: #d4b3ff;
   box-shadow: 0 0 20px rgba(192,153,255,0.4);
 }
+.btn-primary:disabled {
+  background: var(--comment);
+  color: var(--fg);
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn-spinner {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
 .btn-outline {
   border-color: var(--accent);
@@ -1139,55 +1160,6 @@ pre, code { font-family: var(--font-mono); }
   margin-top: 0.4rem;
   font-size: 0.68rem;
   opacity: 0.5;
-}
-
-/* ===================================================================
-   Konami Overlay
-   =================================================================== */
-.konami-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(14, 14, 20, 0.85);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-.konami-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.konami-terminal {
-  background: var(--bg-darker);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  width: min(480px, 90vw);
-  box-shadow: 0 0 60px rgba(192,153,255,0.2), 0 24px 60px rgba(0,0,0,0.6);
-  transform: scale(0.95) translateY(10px);
-  transition: transform 0.3s ease;
-}
-.konami-overlay.active .konami-terminal {
-  transform: scale(1) translateY(0);
-}
-
-.konami-body {
-  padding: 1.5rem 1.75rem 1.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  line-height: 2;
-}
-.konami-body p strong { font-weight: 700; }
-
-.konami-close {
-  margin-top: 0.5rem;
-  border-radius: var(--radius);
-  padding: 0.5rem 1.5rem;
 }
 
 /* ===================================================================
