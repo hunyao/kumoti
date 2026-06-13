@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>あなたの課題を、仕組みに変える - クモカワのIT屋さん</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon_x48.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon_x64.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_x180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://challenges.cloudflare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Status Bar Navigation ===== -->
+  <header class="statusbar" id="statusbar">
+    <div class="sb-left">
+      <div class="sb-mode" id="sbMode">NORMAL</div>
+      <div class="sb-logo-seg">
+        <img src="favicon_x32.png" alt="" class="sb-favicon" aria-hidden="true" />
+        <a href="#top" class="sb-logo">クモカワのIT屋さん</a>
+      </div>
+    </div>
+    <div class="sb-fill"></div>
+    <nav class="sb-nav">
+      <a href="#about">About</a>
+      <span class="sb-dot">·</span>
+      <a href="#services">サービス</a>
+      <span class="sb-dot">·</span>
+      <a href="#forwho">こんな方に</a>
+      <span class="sb-dot">·</span>
+      <a href="#strengths">なぜ選ばれるか</a>
+      <span class="sb-dot">·</span>
+      <a href="#works">実績</a>
+      <span class="sb-dot">·</span>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <div class="sb-fill"></div>
+    <div class="sb-right">
+      <div class="sb-status-seg">
+        <span class="sb-status-dot"></span>
+        <span>open to work</span>
+      </div>
+      <div class="sb-branch-seg">
+        <span class="sb-branch-icon">⎇</span>
+        <span>main</span>
+      </div>
+      <div class="sb-time-seg" id="sbTime">00:00:00</div>
+    </div>
+    <button class="sb-hamburger" id="sbHamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="sb-mobile-nav" id="sbMobileNav">
+      <a href="#about">About</a>
+      <a href="#services">サービス</a>
+      <a href="#forwho">こんな方に</a>
+      <a href="#strengths">なぜ選ばれるか</a>
+      <a href="#works">実績</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="hero-message">
+      <h1 class="hero-name" id="heroName"><span id="heroLine1" data-content="あなたの課題を、"></span><br><span id="heroLine2" data-content="仕組みに変える。"></span><span class="hero-type-cursor" id="heroCursor">▋</span></h1>
+      <div class="hero-actions" id="heroActions">
+        <a href="#about" class="btn btn-primary">❯ はじめまして</a>
+        <a href="#works" class="btn btn-outline">❯ 実績を見る</a>
+        <a href="https://portfolio.kumoti.jp/" target="_blank" rel="noopener" class="btn btn-portfolio">
+          ポートフォリオ ↗
+        </a>
+        <a href="https://github.com/hunyao" target="_blank" rel="noopener" class="btn btn-github" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <a href="#about" class="hero-scroll-hint">scroll ↓</a>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section class="stats-strip" id="stats">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num" data-target="10" data-suffix="+">0</span>
+        <span class="stat-label">年の開発経験</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="20" data-suffix="+">0</span>
+        <span class="stat-label">携わった案件</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="70" data-suffix="+">0</span>
+        <span class="stat-label">技術スタック</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="9999" data-suffix="+">0</span>
+        <span class="stat-label">面倒くさいと思った数</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num stat-infinity">∞</span>
+        <span class="stat-label">飲んだカフェラテ</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title fade-up">
+        <span class="tk-comment">&gt; </span>About
+      </h2>
+
+      <div class="about-terminal-row fade-up">
+        <div class="terminal-window">
+          <div class="term-titlebar">
+            <div class="term-dots">
+              <span class="term-dot dot-red"></span>
+              <span class="term-dot dot-yellow"></span>
+              <span class="term-dot dot-green"></span>
+            </div>
+            <span class="term-title">bash &mdash; 80&times;24</span>
+          </div>
+          <div class="term-body">
+            <div id="termOutput"></div>
+            <div class="term-current-line">
+              <span class="term-prompt-sym">❯</span>
+              <span id="termInput"></span><span class="term-cursor" id="termCursor">▋</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-window about-code">
+          <div class="code-header">
+            <span class="code-filename">nvim <span class="tk-comment">~/</span>me.ts</span>
+          </div>
+          <pre class="code-body"><code><span class="tk-kw">const</span> <span class="tk-var">me</span> <span class="tk-op">=</span> {
+  <span class="tk-key">name</span><span class="tk-op">:</span>    <span class="tk-str">'クモカワのIT屋さん'</span>,
+  <span class="tk-key">role</span><span class="tk-op">:</span>    <span class="tk-str">'Full Stack Engineer'</span>,
+  <span class="tk-key">stack</span><span class="tk-op">:</span>   [<span class="tk-str">'TypeScript'</span>, <span class="tk-str">'React'</span>, <span class="tk-str">'Node.js'</span>, <span class="tk-str">'AWS'</span>],
+  <span class="tk-key">loves</span><span class="tk-op">:</span>   [<span class="tk-str">'課題発見'</span>, <span class="tk-str">'作業効率化'</span>, <span class="tk-str">'カフェラテ'</span>],
+  <span class="tk-key">status</span><span class="tk-op">:</span>  <span class="tk-str">'open to work'</span>,
+} <span class="tk-kw">satisfies</span> <span class="tk-type">Engineer</span></code></pre>
+        </div>
+      </div>
+
+      <div class="about-grid fade-up">
+        <div class="about-text">
+          <p class="about-intro">
+            10年以上、業務システムから企業サイトまで、さまざまな開発の現場に携わってきました。<br><br>
+            得意なのは、日々の仕事の中にある「面倒くさい」「時間がかかる」を見つけて、仕組みで解決すること。「何をどう頼めばいいかわからない」という状態からでも大丈夫です。これまで数多くの現場で培った経験を元に、課題の整理から一緒に進めていきましょう。<br><br>
+            打ち合わせから設計・開発・公開後のサポートまで、すべて一人で対応します。窓口が分かれないので話が早く、余計な中間コストがかからない分、費用も抑えられます。専門用語はできるだけ使わずにご説明しますので、はじめての方もご安心ください。
+          </p>
+          <div class="skills">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">NestJS</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+          <p class="about-more">
+            <span class="tk-comment">#</span> その他のスキルは
+            <a href="https://portfolio.kumoti.jp/" target="_blank" rel="noopener" class="about-more-link">こちら ↗</a>
+            から確認できます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <h2 class="section-title fade-up">
+        <span class="tk-comment">&gt; </span>Services
+      </h2>
+      <div class="services-zigzag">
+
+        <!-- 1: 左ビジュアル / 右テキスト -->
+        <div class="service-row fade-up">
+          <div class="service-visual">
+            <div class="service-icon-wrap">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="4" y="10" width="56" height="40" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M4 18h56" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="14" r="2" fill="currentColor"/>
+                <circle cx="20" cy="14" r="2" fill="currentColor"/>
+                <circle cx="28" cy="14" r="2" fill="currentColor"/>
+                <path d="M16 30l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M30 42h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="service-fn-badge"><span class="tk-kw">function</span> <span class="tk-fn">buildSystem</span>()</span>
+          </div>
+          <div class="service-text">
+            <h3>WEBシステム / 業務システム開発</h3>
+            <p>最初のお打ち合わせから公開後の運用まで一貫して対応。日々の業務の手間を減らし、本来の仕事に集中できる仕組みを構築します。目に見える画面から裏側のデータ処理まで、すべてお任せください。</p>
+            <ul class="service-list">
+              <li><span class="tk-teal">▸</span> ご要望の整理・システムの設計</li>
+              <li><span class="tk-teal">▸</span> 画面・機能の開発</li>
+              <li><span class="tk-teal">▸</span> データ管理の仕組みづくり</li>
+              <li><span class="tk-teal">▸</span> 動作確認・公開・サーバー準備</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2: 左テキスト / 右ビジュアル -->
+        <div class="service-row service-row-rev fade-up">
+          <div class="service-visual">
+            <div class="service-icon-wrap">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="4" y="8" width="56" height="38" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M24 46v8M40 46v8M16 54h32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M14 20h10M14 27h20M14 34h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <rect x="36" y="16" width="16" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="service-fn-badge"><span class="tk-kw">function</span> <span class="tk-fn">buildWebsite</span>()</span>
+          </div>
+          <div class="service-text">
+            <h3>HP / Web制作</h3>
+            <p>会社のホームページ・キャンペーンページ・お店の紹介サイトなど、目的に合わせたウェブサイトを制作します。デザインから制作・公開まで一括対応。</p>
+            <ul class="service-list">
+              <li><span class="tk-teal">▸</span> デザイン・サイト制作</li>
+              <li><span class="tk-teal">▸</span> スマホ・タブレット表示への対応</li>
+              <li><span class="tk-teal">▸</span> ご自身で更新できる仕組みの導入</li>
+              <li><span class="tk-teal">▸</span> 公開・ドメイン設定</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3: 左ビジュアル / 右テキスト -->
+        <div class="service-row fade-up">
+          <div class="service-visual">
+            <div class="service-icon-wrap">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 44l10-14 8 8 10-16 12 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="48" cy="20" r="8" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M45 20l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 52h48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="service-fn-badge"><span class="tk-kw">function</span> <span class="tk-fn">improve</span>()</span>
+          </div>
+          <div class="service-text">
+            <h3>品質改善 / 生産性向上</h3>
+            <p>今お使いのシステムの課題を分析し、「遅い」「壊れやすい」「手間がかかる」を解消します。作り直さずに改善できるケースも多くあります。</p>
+            <ul class="service-list">
+              <li><span class="tk-teal">▸</span> プログラム内部の点検・整理</li>
+              <li><span class="tk-teal">▸</span> 表示速度の計測・改善</li>
+              <li><span class="tk-teal">▸</span> 繰り返し作業の自動化</li>
+              <li><span class="tk-teal">▸</span> 不具合を未然に防ぐ自動チェックの導入</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4: 左テキスト / 右ビジュアル -->
+        <div class="service-row service-row-rev fade-up">
+          <div class="service-visual">
+            <div class="service-icon-wrap">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="32" cy="20" r="10" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M14 52c0-9.94 8.06-18 18-18s18 8.06 18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M44 28l6-4M44 32h7M44 36l6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="service-fn-badge"><span class="tk-kw">function</span> <span class="tk-fn">consult</span>()</span>
+          </div>
+          <div class="service-text">
+            <h3>技術顧問 / コンサルティング</h3>
+            <p>「社内にITに詳しい人がいない」という会社の、継続的な相談相手になります。何かあったときに気軽に聞ける専門家がいる安心感を提供します。</p>
+            <ul class="service-list">
+              <li><span class="tk-teal">▸</span> システム構成や使う技術の選定</li>
+              <li><span class="tk-teal">▸</span> 開発会社とのやり取りの橋渡し・チェック</li>
+              <li><span class="tk-teal">▸</span> システム課題の調査・改善提案</li>
+              <li><span class="tk-teal">▸</span> 新規事業・スタートアップの技術相談</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5: 左ビジュアル / 右テキスト -->
+        <div class="service-row fade-up">
+          <div class="service-visual">
+            <div class="service-icon-wrap">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="16" y="4" width="32" height="56" rx="6" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="32" cy="54" r="2" fill="currentColor"/>
+                <path d="M24 16h16M24 23h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <rect x="24" y="30" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="service-fn-badge"><span class="tk-kw">function</span> <span class="tk-fn">buildApp</span>()</span>
+          </div>
+          <div class="service-text">
+            <h3>アプリ開発</h3>
+            <p>スマートフォン・タブレット向けのアプリ開発に対応。使う人が迷わない、シンプルで使いやすいアプリを届けます。</p>
+            <ul class="service-list">
+              <li><span class="tk-teal">▸</span> iPhone / Android アプリ開発</li>
+              <li><span class="tk-teal">▸</span> 両対応をまとめて効率よく開発</li>
+              <li><span class="tk-teal">▸</span> 使いやすさの設計・試作品づくり</li>
+              <li><span class="tk-teal">▸</span> アプリストアへの申請・公開</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== For Who ===== -->
+  <section class="section section-alt" id="forwho">
+    <div class="container">
+      <h2 class="section-title fade-up">
+        <span class="tk-comment">&gt; </span>For who
+      </h2>
+      <p class="forwho-lead fade-up">読んで「あ、自分のことだ」と思ったら、お気軽にご相談ください。</p>
+      <div class="forwho-grid">
+        <div class="forwho-item forwho-wide fade-up">
+          <span class="forwho-check">✓</span>
+          <div>
+            <strong>AIを使って自分でサイトを直そうとしたら、逆に動かなくなってしまった</strong>
+            <p>最近よくあるご相談です。責めません。まずは現状を確認して、きちんと立て直します。</p>
+          </div>
+        </div>
+        <div class="forwho-item fade-up">
+          <span class="forwho-check">✓</span>
+          <div>
+            <strong>毎日の手作業やExcel管理に、うすうす限界を感じている</strong>
+            <p>「いつかやらないと…」が何年も続いているなら、仕組み化のタイミングです。</p>
+          </div>
+        </div>
+        <div class="forwho-item fade-up">
+          <span class="forwho-check">✓</span>
+          <div>
+            <strong>エンジニアへの依頼、何から話せばいいかわからない</strong>
+            <p>技術的な知識は不要です。ヒアリングから一緒に整理します。</p>
+          </div>
+        </div>
+        <div class="forwho-item fade-up">
+          <span class="forwho-check">✓</span>
+          <div>
+            <strong>以前頼んだ開発者と認識がずれて、納品後に後悔した経験がある</strong>
+            <p>こまめな確認と認識合わせを徹底します。驚かせません。</p>
+          </div>
+        </div>
+        <div class="forwho-item fade-up">
+          <span class="forwho-check">✓</span>
+          <div>
+            <strong>ホームページもシステムも、まとめて一人に任せたい</strong>
+            <p>デザインから開発・公開後のサポートまで一括対応。窓口は一つで済みます。</p>
+          </div>
+        </div>
+        <div class="forwho-item fade-up">
+          <span class="forwho-check">✓</span>
+          <div>
+            <strong>技術的なことがわからないまま高い見積もりを出されて困った</strong>
+            <p>何にいくらかかるか、なぜその金額なのかを丁寧に説明します。</p>
+          </div>
+        </div>
+        <div class="forwho-item fade-up">
+          <span class="forwho-check">✓</span>
+          <div>
+            <strong>システムは動いてるけど、なんか遅い・古い気がしている</strong>
+            <p>現状分析から改善提案まで対応します。作り直し前提ではありません。</p>
+          </div>
+        </div>
+      </div>
+      <div class="forwho-cta fade-up">
+        <a href="#contact" class="btn btn-primary">❯ 無料で相談してみる</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Strengths ===== -->
+  <section class="section" id="strengths">
+    <div class="container">
+      <h2 class="section-title fade-up">
+        <span class="tk-comment">&gt; </span>Why Me
+      </h2>
+      <p class="strengths-lead fade-up">
+        「作るだけ」のエンジニアではありません。<br>
+        課題を<em>見つけ</em>、解決策を<em>提案し</em>、実装して<em>納品する</em>——その全てを一人で担います。
+      </p>
+      <div class="bento-grid">
+
+        <div class="bento-card bento-wide fade-up">
+          <span class="bento-num">01</span>
+          <h3>フルスタック × 10年以上</h3>
+          <p>目に見える画面のデザインから、裏側のデータ処理・サーバーまで、10年以上の経験ですべて対応できます。「これはどこに相談すれば…」と迷ったら、まず聞いてください。</p>
+        </div>
+
+        <div class="bento-card fade-up">
+          <span class="bento-num">02</span>
+          <h3>誰も気づかない課題を見つける</h3>
+          <p>現場の方でも「そういうものだ」と思い込んでいる非効率に気づき、改善を提案してきた経験が多数。言われたものを作るだけでは終わりません。</p>
+        </div>
+
+        <div class="bento-card fade-up">
+          <span class="bento-num">03</span>
+          <h3>業務効率化のスペシャリスト</h3>
+          <p>仕事の流れの中にある無駄を見抜き、仕組みで解決してきた実績多数。かけた費用がきちんと回収できる提案をします。</p>
+        </div>
+
+        <div class="bento-card bento-wide fade-up">
+          <span class="bento-num">04</span>
+          <h3>ヒアリングから納品まで一括</h3>
+          <p>お話を伺う → 解決策のご提案 → 開発 → 納品・その後のサポートまで、すべて一人で担当します。窓口が一つなので話の行き違いが起きにくく、スムーズに進みます。</p>
+        </div>
+
+        <div class="bento-card bento-wide fade-up">
+          <span class="bento-num">05</span>
+          <h3>スピードと品質を両立</h3>
+          <p>10年の経験の蓄積があるから、他より速く形にできます。開発が速いということは、その分費用も抑えられるということ。早く・安く・きちんと動くものを届けます。</p>
+        </div>
+
+        <div class="bento-card fade-up">
+          <span class="bento-num">06</span>
+          <h3>技術とビジネスをつなぐ</h3>
+          <p>技術力とコミュニケーション能力を兼備。お客様の言葉を技術に、技術をお客様の言葉に翻訳します。難しい話を難しいまま返しません。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Portfolio ===== -->
+  <section class="section section-alt" id="works">
+    <div class="container">
+      <h2 class="section-title fade-up">
+        <span class="tk-comment">&gt; </span>Works
+      </h2>
+      <div class="portfolio-grid">
+
+        <article class="portfolio-card fade-up">
+          <div class="card-code">
+            <pre><code><span class="tk-comment">// 不動産業 CRMシステム</span>
+<span class="tk-kw">interface</span> <span class="tk-type">CustomerRecord</span> {
+  id<span class="tk-op">:</span> <span class="tk-type">string</span>
+  status<span class="tk-op">:</span> <span class="tk-str">'active'</span> <span class="tk-op">|</span> <span class="tk-str">'pending'</span>
+}</code></pre>
+          </div>
+          <div class="card-body">
+            <h3>営業向け CRM システム開発</h3>
+            <p>顧客情報や案件の進捗が担当者ごとにバラバラに管理されていた不動産会社に、顧客・案件・進捗・チャット・Todo をひとつにまとめた営業支援システムを開発。今後の機能追加にも耐えられる、長く使える作りに整えました。</p>
+            <div class="card-tags">
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">NestJS</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">MySQL</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card fade-up">
+          <div class="card-code">
+            <pre><code><span class="tk-comment">// 海外向け自動車部品販売</span>
+<span class="tk-var">app</span>.<span class="tk-fn">get</span>(<span class="tk-str">'/api/search'</span>, <span class="tk-kw">async</span> (req, res) <span class="tk-op">=&gt;</span> {
+  <span class="tk-kw">const</span> { keyword, lang } <span class="tk-op">=</span> req.query
+})</code></pre>
+          </div>
+          <div class="card-body">
+            <h3>海外向け自動車部品販売サイト</h3>
+            <p>海外のお客様向けに自動車部品を販売するサイトを、企画から公開後の運用まで一人で担当。多言語対応・楽天市場との商品連携・スタッフ用の管理画面まで、販売に必要な仕組みをまるごと構築しました。</p>
+            <div class="card-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card fade-up">
+          <div class="card-code">
+            <pre><code><span class="tk-comment">// Kintone フォーム動的レンダリング</span>
+<span class="tk-kw">const</span> <span class="tk-var">Field</span> <span class="tk-op">=</span> React.<span class="tk-fn">memo</span>(({ config }) <span class="tk-op">=&gt;</span> (
+  config.visible <span class="tk-op">?</span> <span class="tk-str">&lt;Input /&gt;</span> <span class="tk-op">:</span> <span class="tk-kw">null</span>
+))</code></pre>
+          </div>
+          <div class="card-body">
+            <h3>コーポレートサイト＆申請システム開発</h3>
+            <p>行政書士事務所のホームページをゼロから制作。これまで紙やメールでやり取りしていた申請手続きをサイト上のフォームで完結できるようにし、事務所側の転記作業をなくしました。入力内容に応じて質問が変わる、迷わないフォームに仕上げています。</p>
+            <div class="card-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">MUI</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Kintone</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <div class="works-more fade-up">
+        <a href="https://portfolio.kumoti.jp/" target="_blank" rel="noopener" class="btn btn-outline">
+          ❯ すべての実績を見る ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section" id="contact">
+    <div class="container contact-container">
+      <h2 class="section-title fade-up">
+        <span class="tk-comment">&gt; </span>Contact
+      </h2>
+      <p class="contact-lead fade-up">まずはお気軽にご相談ください。ご相談・お見積りは<strong>無料</strong>です。</p>
+      <p class="contact-lead fade-up">2営業日以内にご返信します。ご依頼前のご質問だけでも歓迎です。</p>
+      <form class="contact-form fade-up" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name"><span class="tk-comment"># </span>お名前 <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="山田 太郎" />
+        </div>
+        <div class="form-group">
+          <label for="company"><span class="tk-comment"># </span>会社名 </label>
+          <input type="text" id="company" name="company" placeholder="株式会社〇〇" />
+        </div>
+        <div class="form-group">
+          <label for="email"><span class="tk-comment"># </span>メールアドレス <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="your@company.co.jp" />
+        </div>
+        <div class="form-group">
+          <label for="inquiryType"><span class="tk-comment"># </span>問い合わせ種別 <span class="required">*</span></label>
+          <select id="inquiryType" name="inquiryType" required>
+            <option value="" disabled selected>-- 選択してください --</option>
+            <option value="system">業務システム開発のご依頼</option>
+            <option value="maintenance">運用・保守のご依頼</option>
+            <option value="web">HP / Web制作のご依頼</option>
+            <option value="consulting">相談・見積もり</option>
+            <option value="advisor">技術顧問・コンサルティング</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message"><span class="tk-comment"># </span>お問い合わせ内容 <span class="required">*</span></label>
+          <textarea id="message" name="message" rows="6" required placeholder="お問い合わせ内容をご記入ください"></textarea>
+        </div>
+        <div
+          class="cf-turnstile"
+          data-sitekey="0x4AAAAAADju0-CpRRsL1mNg"
+          data-callback="onSuccess"
+          data-error-callback="onError"
+          >
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <span class="tk-prompt-inline">❯</span> この内容で送信する
+        </button>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <p>
+      <span class="tk-comment">#</span>
+      Copyright <span id="year"></span> クモカワのIT屋さん
+      &mdash; crafted with <span class="tk-red">♥</span>
+    </p>
+    <p class="footer-ai">Built with <span class="tk-accent">Claude</span></p>
+  </footer>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="script.js"></script>
+</body>
+</html>

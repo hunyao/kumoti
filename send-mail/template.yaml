@@ -1,0 +1,84 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  send-mail
+
+  Contact form handler for kumoti.jp — Turnstile verification + SES email delivery
+
+Parameters:
+  TurnstileSecretKey:
+    Type: String
+    NoEcho: true
+    Description: Cloudflare Turnstile secret key
+  ToEmail:
+    Type: String
+    Description: Recipient email address for contact form submissions
+  FromEmail:
+    Type: String
+    Description: Verified SES sender email address
+  AllowedOrigin:
+    Type: String
+    Default: 'https://kumoti.jp'
+    Description: CORS allowed origin
+
+Globals:
+  Function:
+    Timeout: 10
+  Api:
+    Cors:
+      AllowMethods: "'POST,OPTIONS'"
+      AllowHeaders: "'Content-Type'"
+      AllowOrigin: !Sub "'${AllowedOrigin}'"
+
+Resources:
+  SendMailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello-world/
+      Handler: app.lambdaHandler
+      Runtime: nodejs24.x
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          TURNSTILE_SECRET_KEY: !Ref TurnstileSecretKey
+          TO_EMAIL: !Ref ToEmail
+          FROM_EMAIL: !Ref FromEmail
+          ALLOWED_ORIGIN: !Ref AllowedOrigin
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - ses:SendEmail
+                - ses:SendRawEmail
+              Resource: '*'
+      Events:
+        ContactPost:
+          Type: Api
+          Properties:
+            Path: /contact
+            Method: post
+        ContactOptions:
+          Type: Api
+          Properties:
+            Path: /contact
+            Method: options
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2020"
+        Sourcemap: true
+        EntryPoints:
+          - app.ts
+
+Outputs:
+  ContactApi:
+    Description: "API Gateway endpoint URL for contact form"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/Prod/contact"
+  SendMailFunction:
+    Description: "Send Mail Lambda Function ARN"
+    Value: !GetAtt SendMailFunction.Arn
+  SendMailFunctionIamRole:
+    Description: "IAM Role for SendMailFunction"
+    Value: !GetAtt SendMailFunctionRole.Arn
