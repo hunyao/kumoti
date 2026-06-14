@@ -22,13 +22,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | about | 擬似ターミナル + `const me` コードブロック + 自己紹介・スキルタグ |
 | services | 提供サービス5種（WEBシステム・アプリ・HP制作・品質改善・技術顧問）のジグザグレイアウト |
 | forwho | 「For who」ターゲット顧客の課題チェックリスト |
-| strengths | 強み6項目のベントーグリッド |
+| whyme | 強み6項目のベントーグリッド |
 | works | 実績カード3件 + ポートフォリオサイトへのリンク |
 | contact | 問い合わせ種別セレクト + Turnstile スパム対策付きコンタクトフォーム |
 | footer | コピーライト・AI制作クレジット |
 
 **重要な制約:**  
-実名（雲川 洵）は検索エンジンにインデックスされたくないため、サイト内のいかなる箇所にも表示しない。表示名は屋号「クモカワのIT屋さん」のみ使用すること。
+実名は検索エンジンにインデックスされたくないため、サイト内のいかなる箇所にも表示しない。表示名は屋号「クモカワのIT屋さん」のみ使用すること。
 
 ## Development
 
@@ -45,7 +45,7 @@ npx http-server . -p 8080 -c-1
 
 | ファイル / ディレクトリ | 役割 |
 |---|---|
-| `index.html` | 全コンテンツ。セクション順: statusbar → hero → stats → about → services → forwho → strengths → works → contact → footer |
+| `index.html` | 全コンテンツ。セクション順: statusbar → hero → stats → about → services → forwho → whyme → works → contact → footer |
 | `style.css` | Tokyo Night Moon テーマ。CSS変数（`:root`）でパレットを管理 |
 | `script.js` | すべてのインタラクション |
 | `send-mail/` | お問い合わせフォームのバックエンド（AWS SAM プロジェクト） |
@@ -58,16 +58,15 @@ npx http-server . -p 8080 -c-1
 - **ヒーローアニメーション**: `typeChars()` でキャッチコピーをタイピング演出
 - **About ターミナル**: スクロールインビュー時に `runAboutTerminal()` が起動し、擬似ターミナルに順次コマンドを打ち込む演出
 - **スタッツカウントアップ**: `countUp()` で数値をイージングしながら増加
-- **コナミコード**: `↑↑↓↓←→←→BA` でイースターエッグ表示
-- **コンタクトフォーム**: Cloudflare Turnstile でスパム検証 → AWS API Gateway（`CONTACT_API_URL`、`script.js` 195行目）に POST → Lambda が SES でメール送信
+- **コンタクトフォーム**: Cloudflare Turnstile でスパム検証 → AWS API Gateway（`CONTACT_API_URL`、`script.js` 195行目）に POST → Lambda が メール送信
 
 **send-mail/ の構成**
 AWS SAM プロジェクト（TypeScript / Node.js 24.x）。
 
 | ファイル | 役割 |
 |---|---|
-| `template.yaml` | SAM テンプレート。API Gateway + Lambda + SES IAM ポリシーを定義 |
-| `hello-world/app.ts` | Lambda ハンドラ。Turnstile 検証 → SES 送信 |
+| `template.yaml` | SAM テンプレート。API Gateway + Lambda |
+| `hello-world/app.ts` | Lambda ハンドラ。Turnstile 検証 → 送信 |
 | `samconfig.toml` | SAM デプロイ設定（スタック名: `send-mail`） |
 
 環境変数は SAM デプロイ時のパラメータで設定（`TurnstileSecretKey` / `ToEmail` / `FromEmail` / `AllowedOrigin`）。
@@ -81,5 +80,4 @@ sam build && sam deploy
 ## 注意点
 
 - フォント（Inter / JetBrains Mono）は Google Fonts から CDN 読み込み。オフライン環境では表示が崩れる。
-- SES は us-east-1 リージョン。送受信メールアドレスは SES で verify 済みであること。
 - Cloudflare Turnstile の Site Key は `index.html` の `data-sitekey` 属性に、Secret Key は Lambda の環境変数（AWS Parameter Store 経由）に設定。
