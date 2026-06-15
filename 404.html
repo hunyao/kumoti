@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 Not Found - クモカワのIT屋さん</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-404 {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .err-window {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      max-width: 480px;
+      width: 100%;
+    }
+    .err-titlebar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 1.5rem;
+    }
+    .err-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+    .err-titlebar-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--comment);
+      margin-left: 6px;
+    }
+    .err-code {
+      font-family: var(--font-mono);
+      font-size: clamp(3.5rem, 15vw, 6rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+    .err-label {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--comment);
+      margin-top: 0.4rem;
+    }
+    .err-body {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+    .err-cmd {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--fg-dim);
+      text-align: left;
+    }
+    .err-cmd .tk-red { color: var(--red); }
+    .err-msg {
+      font-size: 0.9rem;
+      color: var(--fg-dim);
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+    .err-actions {
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-404">
+    <div class="err-window">
+      <div class="err-titlebar">
+        <span class="err-dot"></span>
+        <span class="err-dot"></span>
+        <span class="err-dot"></span>
+        <span class="err-titlebar-label">bash — kumoti.jp</span>
+      </div>
+
+      <div class="err-code">404</div>
+      <div class="err-label">file not found</div>
+
+      <div class="err-body">
+        <div class="err-cmd">
+          <span class="tk-teal">❯</span>
+          <span class="tk-red"> error</span>
+          : No such file or directory
+        </div>
+        <p class="err-msg">
+          お探しのページは存在しないか、移動した可能性があります。
+        </p>
+        <div class="err-actions">
+          <a href="/" class="btn btn-primary">❯ トップへ戻る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
